@@ -37,6 +37,17 @@ public class LogAnalyzer
             System.out.println(hour + ": " + hourCounts[hour]);
         }
     }
+    public int numberOfAccesses()
+    {
+    int total = 0;
+
+    for(int hour = 0; hour < hourCounts.length; hour++)
+    {
+        total += hourCounts[hour];
+    }
+
+    return total;
+    }
     
     public void printData()
     {
