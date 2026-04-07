@@ -70,6 +70,25 @@ public class LogAnalyzer
 
     return quietestHour;
     }
+    public int busiestTwoHour()
+    {
+    int busiestStartHour = 0;
+    int maxSum = hourCounts[0] + hourCounts[1]; // start with 0-1am
+
+    for(int hour = 1; hour < 24; hour++)
+    {
+        int nextHour = (hour + 1) % 24;           // wraps around midnight
+        int sum = hourCounts[hour] + hourCounts[nextHour];
+
+        if(sum > maxSum)
+        {
+            maxSum = sum;
+            busiestStartHour = hour;
+        }
+    }
+
+    return busiestStartHour;
+    }
     public int numberOfAccesses()
     {
     int total = 0;
