@@ -2,6 +2,7 @@
  * Read web server data and analyse hourly access patterns.
  * 
  * @author David J. Barnes and Michael Kölling.
+ * @author Andrew Wright
  * @version    2016.02.29
  */
 public class LogAnalyzer
@@ -36,6 +37,22 @@ public class LogAnalyzer
         for(int hour = 0; hour < hourCounts.length; hour++) {
             System.out.println(hour + ": " + hourCounts[hour]);
         }
+    }
+    public int busiestHour()
+    {
+    int busiestHour = 0;
+    int maxCount = hourCounts[0];
+
+    for(int hour = 1; hour < hourCounts.length; hour++)
+    {
+        if(hourCounts[hour] > maxCount)
+        {
+            maxCount = hourCounts[hour];
+            busiestHour = hour;
+        }
+    }
+
+    return busiestHour;
     }
     public int numberOfAccesses()
     {
